@@ -1,8 +1,17 @@
 <div class="jumbotron">
   <h2>{{results.question}}</h1>
 </div>
-<select ng-model="type" ng-change="triggerChart()" ng-init="somethingHere = k[0]" ng-options="k as k for (k, v) in results.userTags">
-  <option value="">Select Type</option>
+<style type="text/css">
+  #google-visualization-errors-0 {display: none;}
+</style>
+<!-- <pre> --v
+  <!-- </pre> -->
+  <h3>Seleccioná un grupo:</h3>
+  <!-- 
+    results.teams.teams[v]['name']
+   -->
+<select ng-model="type" style="width:100%;`" ng-change="triggerChart()" ng-options="k as v.name for (k, v) in results.teams.teams">
+  <option value="">{{Total}}</option>
 </select>
 <div class="row marketing">
   <div class="col-sm-12">
