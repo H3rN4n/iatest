@@ -63,19 +63,17 @@ angular.module('iamatApp')
 		    ]}
 		]};	
     }
-    
-    $scope.tags = [];
-    $scope.results = resultsFactory;
-
-
-	$scope.chartObject = {};
-    $scope.chartObject.type = "PieChart";
 
     var mapUserTags = function(obj) {
 	    $scope.results.userTags = $.map(obj, function(value, index) {
 		    return [value];
 		});
 	};
+    
+    $scope.tags = [];
+    $scope.results = resultsFactory;
+	$scope.chartObject = {};
+    $scope.chartObject.type = "PieChart";
 
     $scope.triggerChart = function(){
     	googleChartApiPromise.then(parseData($scope.results.answers, $scope.results.userTags[$scope.type]['answers']));
