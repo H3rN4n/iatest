@@ -13,11 +13,11 @@ module.exports = function (grunt) {
   require('time-grunt')(grunt);
 
   // Automatically load required Grunt tasks
-  require('jit-grunt')(grunt, {
+  require('jit-grunt')(grunt);/*, {
     useminPrepare: 'grunt-usemin',
     ngtemplates: 'grunt-angular-templates',
     cdnify: 'grunt-google-cdn'
-  });
+  });*/
 
   // Configurable paths for the application
   var appConfig = {
@@ -224,7 +224,7 @@ module.exports = function (grunt) {
         src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
         ignorePath: /(\.\.\/){1,2}bower_components\//
       }
-    }, 
+    },
 
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {

@@ -6,15 +6,16 @@
 </style>
 <!-- <pre> --v
   <!-- </pre> -->
-  <h3>Seleccioná un grupo:</h3>
-  <!-- 
+  <h3>Respuestas por grupos:</h3>
+  <!--
     results.teams.teams[v]['name']
    -->
-<select ng-model="type" style="width:100%;`" ng-change="triggerChart()" ng-options="k as v.name for (k, v) in results.teams.teams">
-  <option value="">{{Total}}</option>
-</select>
 <div class="row marketing">
-  <div class="col-sm-12">
-    <div google-chart chart="chartObject" style="height:600px; width:100%;"></div>
+  <div class="col-sm-12" ng-repeat="tag in tags">
+    <h2>{{tag.name}}</h2>
+    <div google-chart chart="tag.chartOptions" style="height:400px; width:100%;"></div>
   </div>
+</div>
+<div id="pollResultsPage">
+    <div class="content"></div>
 </div>
