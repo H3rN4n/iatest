@@ -13,6 +13,7 @@
 <div class="row marketing">
   <div class="col-sm-6" ng-repeat="tag in tags">
     <h2>{{tag.title}}</h2>
+    <h4>Votos totales: {{tag.total}}</h4>
     <div google-chart chart="tag.chartOptions" style="height:400px; width:100%;"></div>
   </div>
 </div>

@@ -65,6 +65,10 @@ angular.module('iamatApp')
 
     function showPollResults2(data) {
       console.log(data);
+
+      var todos = {'answers': []};
+      data.userTags.todos = todos;
+
       var table = $("<table/>");
 
       var header = $("<tr/>").append($("<th/>").text(" "));
@@ -96,6 +100,8 @@ angular.module('iamatApp')
           globalRow.append($("<td/>").text(0));
         } else {
           globalRow.append($("<td/>").text((anAnswer.count / total * 100).toFixed(1) + "%"));
+          console.log(anAnswer.count);
+          data.userTags.todos.answers.push(anAnswer.count);
           if (anAnswer.correct) {
             correct = index;
             votesRow.find("td").last().addClass("CorrectCol");
@@ -116,7 +122,7 @@ angular.module('iamatApp')
       table.append(header);
       table.append(votesRow);
       table.append(globalRow);
-      console.log(data.userTags);
+
       Object.keys(data.userTags).forEach(function (key) {
 
         var temp = data.userTags[ key ];
@@ -147,7 +153,6 @@ angular.module('iamatApp')
         temp.title = toTitleCase(temp.name.replace("_", " "));
         temp.chartOptions = parseData($scope.results.answers, temp.answers);
 
-        console.log(temp);
         $scope.tags.push(temp);
       });
 
