@@ -11,8 +11,8 @@
     results.teams.teams[v]['name']
    -->
 <div class="row marketing">
-  <div class="col-sm-12" ng-repeat="tag in tags">
-    <h2>{{tag.name}}</h2>
+  <div class="col-sm-6" ng-repeat="tag in tags">
+    <h2>{{tag.title}}</h2>
     <div google-chart chart="tag.chartOptions" style="height:400px; width:100%;"></div>
   </div>
 </div>

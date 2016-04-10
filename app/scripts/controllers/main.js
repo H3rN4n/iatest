@@ -144,6 +144,7 @@ angular.module('iamatApp')
         temp.total = temp.answers.sum();
         temp.max = temp.answers.maximum();
         temp.min = temp.answers.minimum();
+        temp.title = toTitleCase(temp.name.replace("_", " "));
         temp.chartOptions = parseData($scope.results.answers, temp.answers);
 
         console.log(temp);
