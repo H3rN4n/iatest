@@ -34,7 +34,7 @@ angular.module('iamatApp')
 
     function parseData(questions, votes) {
       return {
-        "type": 'PieChart',
+        "type": $scope.graphType,
         "data": {
           "cols": [
             { id: "t", label: "Topping", type: "string" },
@@ -63,10 +63,15 @@ angular.module('iamatApp')
       };
     };
 
+    $scope.triggerChart = function (typeChart) {
+      $scope.graphType = typeChart;
+      googleChartApiPromise.then(showPollResults2($scope.results));
+    }
+
     function showPollResults2(data) {
       console.log(data);
 
-      var todos = {'answers': []};
+      var todos = { 'answers': [] };
       data.userTags.todos = todos;
 
       var table = $("<table/>");
@@ -256,11 +261,7 @@ angular.module('iamatApp')
       $scope.teams = [];
       $scope.results = resultsFactory;
       $scope.chartObject = {};
-      $scope.chartObject.type = "PieChart";
-
-      /*$scope.triggerChart = function () {
-       googleChartApiPromise.then(parseData($scope.results.answers, $scope.results.userTags[ $scope.type ][ 'answers' ]));
-       }*/
+      $scope.graphType = "PieChart";
 
       $scope.teams = iamatFactory;
       showPollResults2($scope.results);
