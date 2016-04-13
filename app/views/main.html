@@ -15,8 +15,8 @@
   <h5>Filtrar por categoría:</h5>
 <div class="row">
   <div class="col-sm-12">
-  <div ng-repeat="tag in tags">
-    <input class="btn btn-primary" type="radio" value="tag.name"/> {{tag.name}}
+  <div ng-repeat="tag in tags" class="tag">
+    <input checked="checked" class="btn btn-primary " type="radio" value="tag.name"/> {{tag.name}}
   </div>
   </div>
 </div>
